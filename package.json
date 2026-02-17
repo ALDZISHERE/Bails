@@ -1,5 +1,5 @@
 {
-    "name": "@yumenative/baileys",
+    "name": "baileys",
     "version": "2.0.3",
     "description": "WhatsApp API Modification Nted",
     "keywords": [
@@ -10,11 +10,11 @@
         "whatsapp-chat",
         "whatsapp-group",
         "botwa",
-        "stvnnvs"
+        "aldz"
     ],
-    "homepage": "https://www.npmjs.com/package/@stvnnvs/baileys",
+    "homepage": "https://github.com/ALDZISHERE/Baileys",
     "repository": {
-        "url": "https://www.npmjs.com/package/@stvnnvs/baileys"
+        "url": "git@github.com:ALDZISHERE/Baileys.git"
     },
     "license": "MIT",
     "author": "Adhiraj Singh",

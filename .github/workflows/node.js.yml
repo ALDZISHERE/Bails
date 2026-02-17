@@ -1,136 +1,31 @@
-# Advanced Quantum-Secured Node.js CI/CD Pipeline with Neural Optimization
-# Teknologi ini menggabungkan keamanan militer dengan kecepatan komputasi neural
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: 🚀 Quantum Node.js CI/CD Neural Pipeline
+name: Node.js CI
 
 on:
   push:
-    branches: [ "main", "develop", "feature/*" ]
-    paths-ignore:
-      - '**.md'
-      - 'docs/**'
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main", "develop" ]
-  schedule:
-    - cron: '0 0 * * 0'  # Weekly security scan
-
-# Neural parallel processing dengan quantum entanglement simulation
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+    branches: [ "main" ]
 
 jobs:
-  # Quantum security scanning layer
-  quantum-security-scan:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0  # Full history untuk quantum analysis
-    
-    - name: 🔬 Neural Vulnerability Scanner
-      run: |
-        echo "⚡ Mengaktifkan neural network security protocol..."
-        # Simulasi quantum encryption detection
-        npm audit --production --json | jq '.vulnerabilities' || true
-        
-    - name: 🛡️ Quantum Dependency Authentication
-      run: |
-        echo "🔐 Verifikasi checksum dependency dengan quantum hashing..."
-        npm ls --depth=0 || true
+  build:
 
-  # Main build matrix dengan neural optimization
-  neural-optimized-build:
-    needs: quantum-security-scan
-    runs-on: ${{ matrix.os }}
-    
+    runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x, 23.x]  # Extended support
-        os: [ubuntu-latest, windows-latest, macos-latest]  # Cross-platform
-        architecture: [x64, arm64]  # Multi-arch support
-        
-    timeout-minutes: 15
-    
+        node-version: [18.x, 20.x, 22.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-    - name: 🧬 Quantum Repository Clone
-      uses: actions/checkout@v4
-      with:
-        submodules: recursive
-        
-    - name: ⚙️ Neural Network Node.js Configuration
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        architecture: ${{ matrix.architecture }}
         cache: 'npm'
-        cache-dependency-path: '**/package-lock.json'
-    
-    - name: 📦 Quantum Dependency Installation
-      run: |
-        echo "🌀 Mengaktifkan parallel dependency resolution..."
-        npm ci --no-audit --no-fund --prefer-offline
-        
-    - name: 🔧 Neural Build Process
-      run: |
-        echo "🧠 Mengoptimasi build dengan neural network..."
-        npm run build --if-present
-      env:
-        NODE_ENV: production
-        NODE_OPTIONS: --max-old-space-size=4096
-        
-    - name: 🧪 Quantum-Enhanced Testing
-      run: |
-        echo "⚡ Menjalankan test dengan parallel quantum processing..."
-        npm test -- --coverage --maxWorkers=2
-      env:
-        CI: true
-        
-    - name: 📊 Neural Performance Analysis
-      run: |
-        echo "📈 Menganalisis metrik performa dengan AI..."
-        mkdir -p neural-logs
-        # Simulasi pengumpulan metrik
-        node -e "console.log(JSON.stringify({memory: process.memoryUsage(), cpu: process.cpuUsage()}))" > neural-logs/metrics.json
-        
-    - name: 🔐 Quantum Artifact Encryption
-      if: success()
-      uses: actions/upload-artifact@v4
-      with:
-        name: quantum-build-${{ matrix.os }}-${{ matrix.node-version }}
-        path: |
-          dist/
-          coverage/
-          neural-logs/
-        retention-days: 7
-        compression-level: 9  # Maximum compression
-
-  # Neural deployment readiness check
-  deployment-readiness:
-    needs: neural-optimized-build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    
-    steps:
-    - name: 🚦 Quantum Deployment Gate
-      run: |
-        echo "✅ Verifikasi kelayakan deployment dengan neural network..."
-        echo "Build matrix: semua platform terkonfirmasi"
-        echo "Security: quantum encryption aktif"
-        echo "Performance: neural optimization complete"
-        
-    - name: 📡 Quantum Notification
-      run: |
-        echo "📨 Sinyal quantum terkirim: Build siap deploy"
-        # Webhook notification simulation
-        curl -X POST https://quantum-hook.example.com/notify \
-          -H "Content-Type: application/json" \
-          -d '{"status":"success","branch":"main"}' || true
-
-# Quantum metrics dashboard
-env:
-  QUANTUM_MODE: enabled
-  NEURAL_OPTIMIZATION: aggressive
-  SECURITY_LEVEL: maximum
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test

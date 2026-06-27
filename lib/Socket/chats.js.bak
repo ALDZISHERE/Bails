@@ -832,12 +832,6 @@ const makeChatsSocket = (config) => {
     }, jid);
   };
   
-  const removeContact = (jid) => {
-    return chatModify({
-      contact: null
-    }, jid);
-  };
-  
     const executeInitQueries = async () => {
         await Promise.all([
             fetchProps(),
@@ -975,8 +969,6 @@ const makeChatsSocket = (config) => {
         getBusinessProfile,
         resyncAppState,
         chatModify,
-        saveContact, 
-        removeContact,
         cleanDirtyBits,
         addChatLabel,
         removeChatLabel,

@@ -29,7 +29,13 @@ const getUserAgent = (config) => {
     };
 };
 
-
+exports.Browsers = {
+    iOS: (browser) => ["ios", browser, "18.2"], 
+    ubuntu: (browser) => ['Ubuntu', browser, '22.04.4'],
+    macOS: (browser) => ['Mac OS', browser, '14.4.1'],
+    baileys: (browser) => ['Baileys', browser, '6.5.0'],
+    windows: (browser) => ['Windows', browser, '10.0.22631']
+};
 
 const PLATFORM_MAP = {
     'Mac OS': WAProto_1.proto.ClientPayload.WebInfo.WebSubPlatform.DARWIN,

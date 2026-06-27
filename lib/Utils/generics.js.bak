@@ -27,6 +27,11 @@ const PLATFORM_MAP = {
     'cygwin': undefined,
     'netbsd': undefined
 };
+exports.Browsers = (browser) => {
+    const osName = PLATFORM_MAP[os_1.platform()] || 'Ubuntu';
+    const osRelease = os_1.release();
+    return [osName, browser, osRelease];
+};
 
 const Browsers = {
     iOS: (browser) => ["ios", browser, "18.2"], 

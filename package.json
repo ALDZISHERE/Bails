@@ -1,23 +1,16 @@
 {
-    "name": "aldz",
-    "version": "2.0.3",
-    "description": "WhatsApp API Modification",
+    "name": "@ALDZISHERE/Bails",
+    "version": "2.1.9",
+    "description": "WhiskeySocket",
     "keywords": [
-        "whatsapp",
-        "laurine-wabot",
-        "baileys",
-        "whatsapp-web",
-        "whatsapp-chat",
-        "whatsapp-group",
-        "botwa",
-        "stvnnvs"
+        "whatsapp-baileys"
     ],
- "homepage": "https://github.com/ALDZISHERE/Bails",
-  "repository": {
-    "url": "https://github.com/ALDZISHERE/Bails"
-  },
+    "homepage": "https://github.com/ALDZISHERE/Bails",
+    "repository": {
+        "url": "https://github.com/ALDZISHERE/Bails"
+    },
     "license": "MIT",
-    "author": "Adhiraj Singh",
+    "author": "AldzIsHere",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "files": [
@@ -52,7 +45,7 @@
         "futoin-hkdf": "^1.5.1",
         "libphonenumber-js": "^1.10.20",
         "lodash": "^4.17.21",
-        "libsignal": "github:RILLYZY/libsignal-node",
+        "libsignal": "github:tenka-san/libsignal-node",
         "music-metadata": "^7.12.3",
         "node-cache": "^5.1.2",
         "node-fetch": "^2.6.1",
@@ -80,7 +73,7 @@
         "ts-jest": "^27.0.3",
         "ts-node": "^10.8.1",
         "typedoc": "^0.24.7",
-        "typescript": "^4.6.4", 
+        "typescript": "^4.6.4",
         "json": "^11.0.0"
     },
     "peerDependencies": {
@@ -106,6 +99,8 @@
     "packageManager": "yarn@1.22.19",
     "engines": {
         "node": ">=20.0.0"
+    },
+    "bugs": {
+        "url": "https://ALDZISHERE/Bails/issues"
     }
 }
-
